@@ -107,5 +107,5 @@ class REDD_Data(object):
 		plot_series(self.dataStore.store.get(self.km.get_key('mains2'))[t1:t2])
 
 
-	def plot_disag_data(self, appliance_name, inst = 1):
-		print("check")
+
+		
