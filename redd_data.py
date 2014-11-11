@@ -86,3 +86,9 @@ class REDD_Data(object):
 	
 	def show_plots(self):
 		plt.show()
+
+	def building_plot_all(self,building_inst,t1,t2):
+		self.dataSet.buildings[building_inst].elec.plot(t1,t2)
+		plt.title("Building "+str(building_inst)+" Energy per Appliance")
+		plt.ylabel('Apparent Power [VA]')
+		plt.xlabel('Hour')
