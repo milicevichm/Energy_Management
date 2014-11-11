@@ -7,6 +7,13 @@ from nilmtk.disaggregate import CombinatorialOptimisation
 import pandas as pd
 import matplotlib.pyplot as plt
 from key_map import *
+import warnings
+from nilmtk.utils import *
+from nilmtk.plots import *
+
+
+#supress warnings
+warnings.filterwarnings("ignore")
 
 class REDD_Data(object):
 
@@ -92,3 +99,13 @@ class REDD_Data(object):
 		plt.title("Building "+str(building_inst)+" Energy per Appliance")
 		plt.ylabel('Apparent Power [VA]')
 		plt.xlabel('Hour')
+
+	def plot_redd_mains_data(self, inst=1, t1 = "", t2 = ""):
+		self.km = Key_Map(inst)
+		#TODO: Look into appending both datastores together to build one mains set
+		plot_series(self.dataStore.store.get(self.km.get_key('mains1'))[t1:t2])
+		plot_series(self.dataStore.store.get(self.km.get_key('mains2'))[t1:t2])
+
+
+	def plot_disag_data(self, appliance_name, inst = 1):
+		print("check")

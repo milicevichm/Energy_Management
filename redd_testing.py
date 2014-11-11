@@ -34,17 +34,19 @@ t2 = "2011-05-01 12:00"											#
 redd_data = REDD_Data(redd_fp,output_fp)
 
 #train Disaggregation Algorithm using all appliances on chosen building
-#redd_data.train_disag_model(training_building_inst)
+redd_data.train_disag_model(training_building_inst)
 
 #disaggregate building data using trained model
-#redd_data.disaggregate(disag_building_inst)
+redd_data.disaggregate(disag_building_inst)
 
 #plot mains data
 #redd_data.plot_mains(disag_building_inst,t1,t2,1)
 
-#plot all appliances per building
-redd_data.building_plot_all(disag_building_inst,t1,t2)
+#print redd metadata
+redd_data.plot_redd_mains_data(1,t1,t2)
 
+#plot all appliances per building
+#redd_data.building_plot_all(disag_building_inst,t1,t2)
 
 #plot disaggregted appliance data
 #redd_data.plot_disag_apl(disag_building_inst,appliance_name,t1,t2)
