@@ -161,7 +161,7 @@ class REDD_Data(object):
 		self.dataStore.close()
 		self.outDataStore.close()
 		print("Output DataStores Sucessfully Closed")
-
+		
 
 	'''
 	All Plot Functions below are a WORK IN PROGRESS!-----------------------------------

@@ -3,26 +3,42 @@
 
 class Key_Map(object):
 
-
 	'''
-	Key_Map Object: contains dict of common appliance ID mapped to the exact
-					DataStore key for quick access. (REDD DataSet)
+	This class contains a dict that maps all REDD DataStore keys for buildings
+	1 to 6 to the name of the appliance (as provided by metadata). Class also outputs 
+	appliance names to the user if needed.
 
-	Arguments: 
-					Building (int):
-			   		The number (1-6) of the building instance you wish to map.
+	Parameters:
+	------------
+
+	building:  		The number (1-6) of the building instance you wish to map for
+					for the dictionary keys.
+
+	Attributes:
+	------------
+
+	map:			The dictionary that stores the key of an item, with the index
+					being the REDD defined appliance name.
+
 	'''
 	def __init__(self, building = 1):
 		self.map = {}
 		self.load_map(building)
 
 
-	'''
-	load_map: function loads the appropiate dictionary according to the building
-			  instance passed (1-6). 
-	'''
 	def load_map(self, building):
 
+		'''
+		Function loads the appropiate dictionary according to the building
+		instance passed (1-6). 
+
+		Parameters:
+		------------
+
+		building:	The number (1-6) of the building instance you wish to map for
+					for the dictionary keys.
+
+		'''
 		if building == 1:
 			self.map['mains'] = '/building1/elec/meter1_2'
 			self.map['mains1'] ='/building1/elec/meter1' 
@@ -153,10 +169,26 @@ class Key_Map(object):
 		else:
 			print("Error: Building application key map cannot be found.")
 
+
 	def list_appliances(self):
+		'''
+		Function prints out all of the different appliance names found in 
+		the current object instance.
+
+		'''
 		for key in self.map:
 			print(key)
 
 	def get_key(self, apl):
+		'''
+		Function returns the DataStore key based on appliance
+		name input.
+
+		Parameters:
+		------------
+
+		apl:			The name of the appliance (as defined in metadata)
+
+		'''
 		return self.map[apl]
 
