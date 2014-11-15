@@ -25,7 +25,7 @@ redd_fp = "C:/NILM/Data/redd_data.h5"				#
 output_fp = "C:/NILM/Data/output_data.h5"			#
 training_building_inst = 1;										#
 disag_building_inst = 1;										#
-appliance_name = "fridge"									#
+appliance_name = "fridge"									#u
 t1 = "2011-05-1 1:00"											#
 t2 = "2011-05-01 12:00"											#
 #----------------------------------------------------------------
@@ -39,20 +39,23 @@ redd_data.train_disag_model(training_building_inst)
 #disaggregate building data using trained model
 redd_data.disaggregate(disag_building_inst)
 
+
+
+#build training set using top energy appliances
+
+
+
+
+#redd_data.building_plot_all(1, t1, t2)
+
 #plot mains data
-#redd_data.plot_mains(disag_building_inst,t1,t2,1)
-
-#print redd metadata
-redd_data.plot_redd_mains_data(1,t1,t2)
-
-#plot all appliances per building
-#redd_data.building_plot_all(disag_building_inst,t1,t2)
+#redd_data.plot_redd_mains_data(1, t1, t2)
 
 #plot disaggregted appliance data
 #redd_data.plot_disag_apl(disag_building_inst,appliance_name,t1,t2)
 
 #show both plots
-redd_data.show_plots()
+#redd_data.show_plots()
 
 #close datastores
 redd_data.close()

@@ -168,45 +168,33 @@ class REDD_Data(object):
 	Documentation will be provided upon completion.------------------------------------
 
 	'''
-
-
-	def plot_mains(self,building_inst, t_start, t_end, mains_inst = 1):
-		self.km = Key_Map(building_inst)
-		#plot mains data vs disaggregated data based on appliance key
-		if mains_inst == 1:
-			self.dataStore.store.get(self.km.get_key('mains1'))[t_start : t_end].plot()
-		else:
-			self.dataStore.store.get(self.km.get_key('mains2'))[t_start : t_end].plot()
-
-		plt.title("Aggregated Mains Energy") 
-		plt.legend().set_visible(False)
-		plt.ylabel('Apparent Power [VA]')
-		plt.xlabel('Hour')
 		
 
-	def plot_disag_apl(self,building_inst,appliance_name,t_start,t_end):
-		self.km = Key_Map(building_inst)
-		self.apl_key = self.km.get_key(appliance_name)
-		self.outDataStore.store.get(self.apl_key)[t_start : t_end].plot()
-		plt.title("Disaggregated " + appliance_name.capitalize()+" Energy") 
-		plt.legend().set_visible(False)
-		plt.ylabel('Apparent Power [VA]')
-		plt.xlabel('Hour')
+	def plot_disag_apl(self,inst,appliance,t1="",t2=""):
+		self.km = Key_Map(inst)
+		plot_series(self.outDataStore.store.get(self.km.get_key(appliance))[t1: t2])
+		plt.title("Disaggregated " + appliance.capitalize()+" Energy") 
+		plt.show()
+
 	
 	def show_plots(self):
 		plt.show()
 
+
 	def building_plot_all(self,building_inst,t1,t2):
 		self.dataSet.buildings[building_inst].elec.plot(t1,t2)
 		plt.title("Building "+str(building_inst)+" Energy per Appliance")
-		plt.ylabel('Apparent Power [VA]')
+		plt.ylabel('Power [W]')
 		plt.xlabel('Hour')
+
 
 	def plot_redd_mains_data(self, inst=1, t1 = "", t2 = ""):
 		self.km = Key_Map(inst)
-		#TODO: Look into appending both datastores together to build one mains set
-		plot_series(self.dataStore.store.get(self.km.get_key('mains1'))[t1:t2])
-		plot_series(self.dataStore.store.get(self.km.get_key('mains2'))[t1:t2])
+		series1 = self.dataStore.store.get(self.km.get_key('mains1'))[t1:t2]
+		series2 = self.dataStore.store.get(self.km.get_key('mains2'))[t1:t2]
+		plot_series(series1 + series2)
+		plt.title("Building "+str(inst)+" Mains Energy")
+		plt.show()
 
 
 
