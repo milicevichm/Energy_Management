@@ -55,8 +55,8 @@ print(out9.buildings[1].elec.map_meter_instances_to_appliance_ids())
 
 #plot appliance's actual fingerprint vs predicted fingerprint
 '''
-plot_series(out9.store.store.get(km.get_key('unknown2'))[t1:t2])
-plot_series(redd_data.store.store.get(km.get_key('unknown2'))[t1:t2])
+plot_series(out9.store.store.get(km.get_key('fridge'))[t1:t2])
+plot_series(redd_data.store.store.get(km.get_key('fridge'))[t1:t2])
 plt.show()
 '''
 
@@ -216,6 +216,58 @@ f9.write(repr(f1_score9))
 f9.close()
 print("Set 9 metric result written to file.")
 print("Error Computed!")
+
+print("Calculating fraction of correct assignment per training group...")
+
+f1 = open('C:/NILM/Data/Model_Train/Error_Output/Correct_Fraction/cor_frac1.txt','w')
+f2 = open('C:/NILM/Data/Model_Train/Error_Output/Correct_Fraction/cor_frac2.txt','w')
+f3 = open('C:/NILM/Data/Model_Train/Error_Output/Correct_Fraction/cor_frac3.txt','w')
+f4 = open('C:/NILM/Data/Model_Train/Error_Output/Correct_Fraction/cor_frac4.txt','w')
+f5 = open('C:/NILM/Data/Model_Train/Error_Output/Correct_Fraction/cor_frac5.txt','w')
+f6 = open('C:/NILM/Data/Model_Train/Error_Output/Correct_Fraction/cor_frac6.txt','w')
+f7 = open('C:/NILM/Data/Model_Train/Error_Output/Correct_Fraction/cor_frac7.txt','w')
+f8 = open('C:/NILM/Data/Model_Train/Error_Output/Correct_Fraction/cor_frac8.txt','w')
+f9 = open('C:/NILM/Data/Model_Train/Error_Output/Correct_Fraction/cor_frac9.txt','w')
+
+print("Calucating for set 1")
+cor1 = fraction_energy_assigned_correctly(out1.buildings[1].elec, redd_data.buildings[1].elec)
+f1.write(repr(cor1))
+f1.close
+print("Calucating for set 2")
+cor2 = fraction_energy_assigned_correctly(out2.buildings[1].elec, redd_data.buildings[1].elec)
+f2.write(repr(cor2))
+f2.close
+print("Calucating for set 3")
+cor3 = fraction_energy_assigned_correctly(out3.buildings[1].elec, redd_data.buildings[1].elec)
+f3.write(repr(cor3))
+f3.close
+print("Calucating for set 4")
+cor4 = fraction_energy_assigned_correctly(out4.buildings[1].elec, redd_data.buildings[1].elec)
+f4.write(repr(cor4))
+f4.close
+print("Calucating for set 5")
+cor5 = fraction_energy_assigned_correctly(out5.buildings[1].elec, redd_data.buildings[1].elec)
+f5.write(repr(cor5))
+f5.close
+print("Calucating for set 6")
+cor6 = fraction_energy_assigned_correctly(out6.buildings[1].elec, redd_data.buildings[1].elec)
+f6.write(repr(cor6))
+f6.close
+print("Calucating for set 7")
+cor7 = fraction_energy_assigned_correctly(out7.buildings[1].elec, redd_data.buildings[1].elec)
+f7.write(repr(cor7))
+f7.close
+print("Calucating for set 8")
+cor8 = fraction_energy_assigned_correctly(out8.buildings[1].elec, redd_data.buildings[1].elec)
+f8.write(repr(cor8))
+f8.close
+print("Calucating for set 9")
+cor9 = fraction_energy_assigned_correctly(out9.buildings[1].elec, redd_data.buildings[1].elec)
+f9.write(repr(cor9))
+f9.close
+
+print("Calculations finished.")
+
 
 
 #close files
