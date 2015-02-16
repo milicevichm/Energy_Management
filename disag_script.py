@@ -2,9 +2,15 @@
 # Author: Michael Milicevich
 # Date: 16/02/2015
 
-# sys used to parse inoput arguments
+# import modules/dependencies
+from __future__ import print_function, division
 import sys
 from dateutil import parser
+import pandas as pd
+from key_map import *
+from nilmtk import *
+import warnings
+
 
 # verify length of args, should be 5 corrsponding to:
 #[0]: script name: disag_script.py
@@ -17,9 +23,30 @@ from dateutil import parser
 if len(sys.argv) != 5:
 	sys.exit("Error: Incorrect amount of input arguments given. Script terminated.")
 
+
+
 #load arguments into script
-redd_building = sys.argv[1]
+redd_building = int(sys.argv[1])
 disag_appliances = sys.argv[2]
 t1 = parser.parse(sys.argv[3])
 t2 = parser.parse(sys.argv[4])
+
+# to add:
+#			1) load REDD data from database (SQL interface)*
+#			2) load training model based on building number
+#			3) disaggregate the data
+#			4) output data into database (SQL interface)*
+#
+#			*Cannot be implemented until database is setup in environment
+
+#Verify input appliance exists in building
+km = Key_Map(redd_building)
+
+# verify a real appliance has been entered
+if km.is_in_map(disag_appliances) == False:
+	sys.exit("An incorrect appliance name has been entered. Please ensure the entered name is exactly correct.")
+
+
+print("Loading REDD Dataset...")
+#redd_data = DataSet("C:/NILM/Data/REDD/redd.h5")
 

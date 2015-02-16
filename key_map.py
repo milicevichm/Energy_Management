@@ -192,3 +192,18 @@ class Key_Map(object):
 		'''
 		return self.map[apl]
 
+	def is_in_map(self,appliance):
+		
+		flag = False
+
+		for key in self.map:
+			if key == appliance:
+				flag = True
+
+		if flag == True:
+			return True
+		else:
+			return False
+
+
+
