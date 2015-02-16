@@ -20,7 +20,7 @@ km = Key_Map(1)
 
 print("Loading Dataset...")
 #declare REDD datastore
-redd_data = DataSet("C:/NILM/Data/redd_data.h5")
+redd_data = DataSet("C:/NILM/Data/REDD/redd.h5")
 #redd_data.store.window = TimeFrame(start = "2011-05-01 00:00:00+00:00", end = "2011-05-01 12:00:00+00:00")
 print("Dataset Loaded!")
 
@@ -193,161 +193,161 @@ Create 15 output files to hold disaggregated data.
 
 print("Creating output files...")
 
-outData1 = HDFDataStore("C:/NILM/Data/Model_Train/output1.h5",'w')
-outData2 = HDFDataStore("C:/NILM/Data/Model_Train/output2.h5",'w')
-outData3 = HDFDataStore("C:/NILM/Data/Model_Train/output3.h5",'w')
-outData4 = HDFDataStore("C:/NILM/Data/Model_Train/output4.h5",'w')
-outData5 = HDFDataStore("C:/NILM/Data/Model_Train/output5.h5",'w')
-outData6 = HDFDataStore("C:/NILM/Data/Model_Train/output6.h5",'w')
-outData7 = HDFDataStore("C:/NILM/Data/Model_Train/output7.h5",'w')
-outData8 = HDFDataStore("C:/NILM/Data/Model_Train/output8.h5",'w')
-outData9 = HDFDataStore("C:/NILM/Data/Model_Train/output9.h5",'w')
-outData10 = HDFDataStore("C:/NILM/Data/Model_Train/output10.h5",'w')
-outData11 = HDFDataStore("C:/NILM/Data/Model_Train/output11.h5",'w')
-outData12 = HDFDataStore("C:/NILM/Data/Model_Train/output12.h5",'w')
-outData13 = HDFDataStore("C:/NILM/Data/Model_Train/output13.h5",'w')
-outData14 = HDFDataStore("C:/NILM/Data/Model_Train/output14.h5",'w')
-outData15 = HDFDataStore("C:/NILM/Data/Model_Train/output15.h5",'w')
+# outData1 = HDFDataStore("C:/NILM/Data/Model_Train/output1.h5",'w')
+# outData2 = HDFDataStore("C:/NILM/Data/Model_Train/output2.h5",'w')
+# outData3 = HDFDataStore("C:/NILM/Data/Model_Train/output3.h5",'w')
+# outData4 = HDFDataStore("C:/NILM/Data/Model_Train/output4.h5",'w')
+# outData5 = HDFDataStore("C:/NILM/Data/Model_Train/output5.h5",'w')
+# outData6 = HDFDataStore("C:/NILM/Data/Model_Train/output6.h5",'w')
+# outData7 = HDFDataStore("C:/NILM/Data/Model_Train/output7.h5",'w')
+# outData8 = HDFDataStore("C:/NILM/Data/Model_Train/output8.h5",'w')
+# outData9 = HDFDataStore("C:/NILM/Data/Model_Train/output9.h5",'w')
+# outData10 = HDFDataStore("C:/NILM/Data/Model_Train/output10.h5",'w')
+# outData11 = HDFDataStore("C:/NILM/Data/Model_Train/output11.h5",'w')
+# outData12 = HDFDataStore("C:/NILM/Data/Model_Train/output12.h5",'w')
+# outData13 = HDFDataStore("C:/NILM/Data/Model_Train/output13.h5",'w')
+# outData14 = HDFDataStore("C:/NILM/Data/Model_Train/output14.h5",'w')
+# outData15 = HDFDataStore("C:/NILM/Data/Model_Train/output15.h5",'w')
 
-print("output files created!")
-
-
-'''
-Disaggregate building 1 data using each training set
-'''
-
-print("Disaggregating building 1 mains using each trained model...")
-
-#set building 1 mains
-b1_mains = redd_data.buildings[1].elec.mains()
+# print("output files created!")
 
 
-current_time = time.time()
-co1.disaggregate(b1_mains, outData1)
-time1 = time.time() - current_time
-print("mains disaggregated with set 1 model")
+# '''
+# Disaggregate building 1 data using each training set
+# '''
 
-current_time = time.time()
-co2.disaggregate(b1_mains, outData2)
-time2 =time.time() - current_time
-print("mains disaggregated with set 2 model")
+# print("Disaggregating building 1 mains using each trained model...")
 
-current_time = time.time()
-co3.disaggregate(b1_mains, outData3)
-time3 =time.time() - current_time
-print("mains disaggregated with set 3 model")
+# #set building 1 mains
+# b1_mains = redd_data.buildings[1].elec.mains()
 
-current_time = time.time()
-co4.disaggregate(b1_mains, outData4)
-time4 =time.time() - current_time
-print("mains disaggregated with set 4 model")
 
-current_time = time.time()
-co5.disaggregate(b1_mains, outData5)
-time5 =time.time() - current_time
-print("mains disaggregated with set 5 model")
+# current_time = time.time()
+# co1.disaggregate(b1_mains, outData1)
+# time1 = time.time() - current_time
+# print("mains disaggregated with set 1 model")
 
-current_time = time.time()
-co6.disaggregate(b1_mains, outData6)
-time6 =time.time() - current_time
-print("mains disaggregated with set 6 model")
+# current_time = time.time()
+# co2.disaggregate(b1_mains, outData2)
+# time2 =time.time() - current_time
+# print("mains disaggregated with set 2 model")
 
-current_time = time.time()
-co7.disaggregate(b1_mains, outData7)
-time7 =time.time() - current_time
-print("mains disaggregated with set 7 model")
+# current_time = time.time()
+# co3.disaggregate(b1_mains, outData3)
+# time3 =time.time() - current_time
+# print("mains disaggregated with set 3 model")
 
-current_time = time.time()
-co8.disaggregate(b1_mains, outData8)
-time8 =time.time() - current_time
-print("mains disaggregated with set 8 model")
+# current_time = time.time()
+# co4.disaggregate(b1_mains, outData4)
+# time4 =time.time() - current_time
+# print("mains disaggregated with set 4 model")
 
-current_time = time.time()
-co9.disaggregate(b1_mains, outData9)
-time9 =time.time() - current_time
-print("mains disaggregated with set 9 model")
+# current_time = time.time()
+# co5.disaggregate(b1_mains, outData5)
+# time5 =time.time() - current_time
+# print("mains disaggregated with set 5 model")
 
-current_time = time.time()
-co10.disaggregate(b1_mains, outData10)
-time10 =time.time() - current_time
-print("mains disaggregated with set 10 model")
+# current_time = time.time()
+# co6.disaggregate(b1_mains, outData6)
+# time6 =time.time() - current_time
+# print("mains disaggregated with set 6 model")
 
-current_time = time.time()
-co11.disaggregate(b1_mains, outData11)
-time11 =time.time() - current_time
-print("mains disaggregated with set 11 model")
+# current_time = time.time()
+# co7.disaggregate(b1_mains, outData7)
+# time7 =time.time() - current_time
+# print("mains disaggregated with set 7 model")
 
-current_time = time.time()
-co12.disaggregate(b1_mains, outData12)
-time12 =time.time() - current_time
-print("mains disaggregated with set 12 model")
+# current_time = time.time()
+# co8.disaggregate(b1_mains, outData8)
+# time8 =time.time() - current_time
+# print("mains disaggregated with set 8 model")
 
-current_time = time.time()
-co13.disaggregate(b1_mains, outData13)
-time13 =time.time() - current_time
-print("mains disaggregated with set 13 model")
+# current_time = time.time()
+# co9.disaggregate(b1_mains, outData9)
+# time9 =time.time() - current_time
+# print("mains disaggregated with set 9 model")
 
-current_time = time.time()
-co14.disaggregate(b1_mains, outData14)
-time14 =time.time() - current_time
-print("mains disaggregated with set 13 model")
+# current_time = time.time()
+# co10.disaggregate(b1_mains, outData10)
+# time10 =time.time() - current_time
+# print("mains disaggregated with set 10 model")
 
-current_time = time.time()
-co15.disaggregate(b1_mains, outData15)
-time15 =time.time() - current_time
-print("mains disaggregated with set 15 model")
+# current_time = time.time()
+# co11.disaggregate(b1_mains, outData11)
+# time11 =time.time() - current_time
+# print("mains disaggregated with set 11 model")
 
-print("Building 1 mains sucessfully disaggregated!")
+# current_time = time.time()
+# co12.disaggregate(b1_mains, outData12)
+# time12 =time.time() - current_time
+# print("mains disaggregated with set 12 model")
 
-print("Writing disaggregation timing to file..")
+# current_time = time.time()
+# co13.disaggregate(b1_mains, outData13)
+# time13 =time.time() - current_time
+# print("mains disaggregated with set 13 model")
 
-f = open("C:/NILM/Data/Model_Train/Error_Output/Timing/disag_time.txt",'w')
-f.write(str(time1))
-f.write("	")
+# current_time = time.time()
+# co14.disaggregate(b1_mains, outData14)
+# time14 =time.time() - current_time
+# print("mains disaggregated with set 13 model")
 
-f.write(str(time2))
-f.write("	")
+# current_time = time.time()
+# co15.disaggregate(b1_mains, outData15)
+# time15 =time.time() - current_time
+# print("mains disaggregated with set 15 model")
 
-f.write(str(time3))
-f.write("	")
+# print("Building 1 mains sucessfully disaggregated!")
 
-f.write(str(time4))
-f.write("	")
+# print("Writing disaggregation timing to file..")
 
-f.write(str(time5))
-f.write("	")
+# f = open("C:/NILM/Data/Model_Train/Error_Output/Timing/disag_time.txt",'w')
+# f.write(str(time1))
+# f.write("	")
 
-f.write(str(time6))
-f.write("	")
+# f.write(str(time2))
+# f.write("	")
 
-f.write(str(time7))
-f.write("	")
+# f.write(str(time3))
+# f.write("	")
 
-f.write(str(time8))
-f.write("	")
+# f.write(str(time4))
+# f.write("	")
 
-f.write(str(time9))
-f.write("	")
+# f.write(str(time5))
+# f.write("	")
 
-f.write(str(time10))
-f.write("	")
+# f.write(str(time6))
+# f.write("	")
 
-f.write(str(time11))
-f.write("	")
+# f.write(str(time7))
+# f.write("	")
 
-f.write(str(time12))
-f.write("	")
+# f.write(str(time8))
+# f.write("	")
 
-f.write(str(time13))
-f.write("	")
+# f.write(str(time9))
+# f.write("	")
 
-f.write(str(time14))
-f.write("	")
+# f.write(str(time10))
+# f.write("	")
 
-f.write(str(time15))
-f.close()
+# f.write(str(time11))
+# f.write("	")
 
-print("Timing sucessfully written to file.")
+# f.write(str(time12))
+# f.write("	")
+
+# f.write(str(time13))
+# f.write("	")
+
+# f.write(str(time14))
+# f.write("	")
+
+# f.write(str(time15))
+# f.close()
+
+# print("Timing sucessfully written to file.")
 
 redd_data.store.close()
 outData1.close()
