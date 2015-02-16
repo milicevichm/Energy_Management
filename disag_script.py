@@ -2,6 +2,9 @@
 # Author: Michael Milicevich
 # Date: 16/02/2015
 
+# command linen test variables to use:
+# python disag_script.py 1 "fridge" "2011-05-01" "2011-05-02"
+
 # import modules/dependencies
 from __future__ import print_function, division
 import sys
